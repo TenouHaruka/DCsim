@@ -1,6 +1,6 @@
 package components;
 
-public class Module 
+public abstract class Module 
 {
     private double cost;
     private double deliveryTime;
