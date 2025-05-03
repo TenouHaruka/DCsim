@@ -6,9 +6,9 @@ public class ComputingUnit extends Module
     private double coolingRequirement;  
     private double powerRequirement;
     
-    public ComputingUnit(double cost, double deliveryTime, double electricityUsage, int id, String component, double coolingRequirement, double powerRequirement) 
+    public ComputingUnit(double cost, double deliveryTime, double electricityUsage, int id, String component, double coolingRequirement, double powerRequirement, int x, int y, int rotation) 
     {
-        super(cost, deliveryTime, electricityUsage, id);
+        super(cost, deliveryTime, electricityUsage, id, x, y, rotation);
         this.component = component;
         this.coolingRequirement = coolingRequirement;
         this.powerRequirement = powerRequirement;

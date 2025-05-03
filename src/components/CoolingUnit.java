@@ -5,9 +5,9 @@ public class CoolingUnit extends Module
     private double coolingPower;
     private double waterUsage;
 
-    public CoolingUnit(double cost, double deliveryTime, double electricityUsage, int id, double coolingPower, double waterUsage) 
+    public CoolingUnit(double cost, double deliveryTime, double electricityUsage, int id, double coolingPower, double waterUsage, int x, int y, int rotation) 
     {
-        super(cost, deliveryTime, electricityUsage, id);
+        super(cost, deliveryTime, electricityUsage, id, x, y, rotation);
         this.coolingPower = coolingPower;
         this.waterUsage = waterUsage;
     }
