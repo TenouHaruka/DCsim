@@ -24,37 +24,37 @@ public class GuiDisplay {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1000, 600);
         frame.setLayout(new BorderLayout());
-
+        
         // Create a center container with an OverlayLayout to layer components.
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new OverlayLayout(centerPanel));
-
+        
         // Create the two layers:
         // 1. The blueprint area (drawn first, i.e. in the background).
         Blueprint blueprintPanel = new Blueprint();
         // 2. The module rectangle display (drawn on top).
         displayPanel = new DisplayPanel();
         displayPanel.setOpaque(false);  // Make this panel transparent so the blueprint remains visible.
-
+        
         // When using OverlayLayout, the components are painted in reverse order.
         // Adding displayPanel first and then blueprintPanel yields:
         //   - blueprintPanel (last added) is painted first (background)
         //   - displayPanel (first added) is painted afterwards (foreground)
         centerPanel.add(displayPanel);
         centerPanel.add(blueprintPanel);
-
+        
         legendPanel = new LegendPanel(resourceSupplier);
-
+        
         frame.add(centerPanel, BorderLayout.CENTER);
         frame.add(legendPanel, BorderLayout.EAST);
         frame.setVisible(true);
     }
-
+    
     public void updateView() {
         displayPanel.repaint();
         legendPanel.repaint();
     }
-
+    
     // -----------------------------
     // Panel for displaying modules (drawn on top of the blueprint).
     // -----------------------------

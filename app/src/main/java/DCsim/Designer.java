@@ -9,14 +9,24 @@ import DCsim.handler.ModuleHandler;
 import DCsim.handler.ModuleHandler.ModuleType;
 import DCsim.handler.ModuleHandler.ModuleVariant;
 import DCsim.ui.GuiDisplay;
+import DCsim.ui.Vision;
+
 
 import javax.swing.SwingUtilities;
 
-public class Designer {
+import org.opencv.core.Core;
+
+public class Designer 
+{
+    static { System.loadLibrary(Core.NATIVE_LIBRARY_NAME);}
+    
     private double totalCost;
     private double totalElectricityCons;
     private double totalCoolingPower;
     private double totalComputingPower;
+
+    private static GuiDisplay gui;
+    private static Vision vision;
     
     // Getters
     public double getTotalCost() {
@@ -76,7 +86,7 @@ public class Designer {
         handler.createModule(computing, ModuleType.COMPUTING, ModuleVariant.three);
         
         // Create the GUI display and supply resource data.
-        GuiDisplay gui = new GuiDisplay();
+        gui = new GuiDisplay();
         gui.setGlobalData(() -> new GuiDisplay.ResourceData(
             (int)(storage.getCost() + cooling.getCost() + control.getCost() + computing.getCost()),
             (int)designer.getTotalCost(),
@@ -87,10 +97,32 @@ public class Designer {
             0,
             (int)designer.getTotalComputingPower()
         ));
+        vision = new Vision();
         
-        SwingUtilities.invokeLater(() -> {
-            gui.setup();
-            gui.updateView();
+        SwingUtilities.invokeLater(() -> 
+        {
+            setup();
+            new Thread(() -> 
+            {
+                while (true) 
+                {
+                    SwingUtilities.invokeLater(Designer::loop);
+                }
+            }).start();
         });
+        
+        
     }
+    
+    private static void setup()
+    {
+        gui.setup();
+        vision.setup();
+    }
+    private static void loop()
+    {
+        gui.updateView();
+        vision.loop();
+    }
+
 }
