@@ -42,16 +42,4 @@ public class Pose {
         this.rotation = rotation;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
 }
