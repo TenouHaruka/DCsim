@@ -1,29 +1,28 @@
 package components;
 
-public class ComputingUnit extends Module
-{
-    private String component;
-    private double coolingRequirement;  
-    private double powerRequirement;
+public class ComputingUnit extends Module {
+    private final String component;
+    private final double coolingRequirement;  
+    private final double powerRequirement;
     
-    public ComputingUnit(double cost, double deliveryTime, double electricityUsage, int id, String component, double coolingRequirement, double powerRequirement) 
-    {
-        super(cost, deliveryTime, electricityUsage, id);
+    public ComputingUnit(double cost, double deliveryTime, double electricityUsage, int id, 
+                         String component, double coolingRequirement, double powerRequirement, 
+                         int x, int y, int rotation) {
+        super(cost, deliveryTime, electricityUsage, id, x, y, rotation);
         this.component = component;
         this.coolingRequirement = coolingRequirement;
         this.powerRequirement = powerRequirement;
     }
-
-    public String getComponent() 
-    {
+    
+    public String getComponent() {
         return component;
     }
-    public double getCoolingRequirement() 
-    {
+    
+    public double getCoolingRequirement() {
         return coolingRequirement;
     }
-    public double getPowerRequirement() 
-    {
+    
+    public double getPowerRequirement() {
         return powerRequirement;
     }
 }
