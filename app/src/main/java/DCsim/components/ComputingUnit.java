@@ -1,4 +1,4 @@
-package components;
+package DCsim.components;
 
 public class ComputingUnit extends Module {
     private final String component;

@@ -1,4 +1,4 @@
-package components;
+package DCsim.components;
 
 public abstract class Module {
     private final double cost;

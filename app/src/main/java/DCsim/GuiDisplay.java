@@ -1,7 +1,9 @@
-import components.Module;
-import handler.ModuleHandler;
-import handler.ModuleHandler.ModuleType;
-import handler.ModuleHandler.ModuleVariant;
+package DCsim;
+
+import DCsim.components.Module;
+import DCsim.handler.ModuleHandler;
+import DCsim.handler.ModuleHandler.ModuleType;
+import DCsim.handler.ModuleHandler.ModuleVariant;
 import java.awt.*;
 import java.util.List;
 import java.util.function.Supplier;

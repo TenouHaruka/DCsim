@@ -1,6 +1,6 @@
-package handler;
+package DCsim.handler;
 
-import components.Module;
+import DCsim.components.Module;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

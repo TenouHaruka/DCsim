@@ -1,11 +1,13 @@
-import components.ComputingUnit;
-import components.ControlUnit;
-import components.CoolingUnit;
-import components.Module;
-import components.StorageUnit;
-import handler.ModuleHandler;
-import handler.ModuleHandler.ModuleType;
-import handler.ModuleHandler.ModuleVariant;
+package DCsim;
+
+import DCsim.components.ComputingUnit;
+import DCsim.components.ControlUnit;
+import DCsim.components.CoolingUnit;
+import DCsim.components.Module;
+import DCsim.components.StorageUnit;
+import DCsim.handler.ModuleHandler;
+import DCsim.handler.ModuleHandler.ModuleType;
+import DCsim.handler.ModuleHandler.ModuleVariant;
 import javax.swing.SwingUtilities;
 
 public class Designer {
