@@ -14,6 +14,7 @@ public class StorageUnit extends Module {
         this.storageCapacity = storageCapacity;
     }
     
+
     public String getComponent() {
         return component;
     }

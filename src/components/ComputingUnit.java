@@ -5,6 +5,7 @@ public class ComputingUnit extends Module {
     private final double coolingRequirement;  
     private final double powerRequirement;
     
+
     public ComputingUnit(double cost, double deliveryTime, double electricityUsage, int id, 
                          String component, double coolingRequirement, double powerRequirement, 
                          int x, int y, int rotation) {

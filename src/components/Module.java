@@ -5,7 +5,8 @@ public abstract class Module {
     private final double deliveryTime;
     private final double electricityUsage;
     private int id;
-    private final Pose pose;
+
+    private Pose pose;
     
     public Module(double cost, double deliveryTime, double electricityUsage, int id, int x, int y, int rotation) {
         this.cost = cost;
@@ -30,6 +31,7 @@ public abstract class Module {
     public int getId() {
         return id;
     }
+
     
     public Pose getPose() {
         return pose;
