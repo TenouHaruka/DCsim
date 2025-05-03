@@ -5,6 +5,7 @@ import components.Module;
 import components.StorageUnit;
 import handler.ModuleHandler;
 import handler.ModuleHandler.ModuleType;
+import handler.ModuleHandler.ModuleVariant;
 import javax.swing.SwingUtilities;
 
 public class Designer {
@@ -63,10 +64,12 @@ public class Designer {
         Module control = new ControlUnit(120, 4, 40, 3, 250, 120, 0);
         Module computing = new ComputingUnit(180, 7, 70, 4, "CPU-X", 30, 200, 350, 150, 0);
         
-        handler.createModule(storage, ModuleType.STORAGE);
-        handler.createModule(cooling, ModuleType.COOLING);
-        handler.createModule(control, ModuleType.CONTROL);
-        handler.createModule(computing, ModuleType.COMPUTING);
+        // Use overloaded createModule: storage explicitly provides a variant,
+        // while others use the default (ModuleVariant.one).
+        handler.createModule(storage, ModuleType.STORAGE, ModuleVariant.one);
+        handler.createModule(cooling, ModuleType.COOLING, ModuleVariant.two);
+        handler.createModule(control, ModuleType.CONTROL, ModuleVariant.one);
+        handler.createModule(computing, ModuleType.COMPUTING, ModuleVariant.three);
         
         // Create the GUI display and supply resource data.
         GuiDisplay gui = new GuiDisplay();
@@ -75,9 +78,9 @@ public class Designer {
             (int)designer.getTotalCost(),
             (int)(storage.getElectricityUsage() + cooling.getElectricityUsage() + control.getElectricityUsage() + computing.getElectricityUsage()),
             (int)designer.getTotalElectricityCons(),
-            0, // usedCooling (example)
+            0,
             (int)designer.getTotalCoolingPower(),
-            0, // usedComputing (example)
+            0,
             (int)designer.getTotalComputingPower()
         ));
         
