@@ -1,4 +1,4 @@
-package DCsim;
+package DCsim.ui;
 
 import DCsim.components.Module;
 import DCsim.handler.ModuleHandler;

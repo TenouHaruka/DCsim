@@ -8,6 +8,8 @@ import DCsim.components.StorageUnit;
 import DCsim.handler.ModuleHandler;
 import DCsim.handler.ModuleHandler.ModuleType;
 import DCsim.handler.ModuleHandler.ModuleVariant;
+import DCsim.ui.GuiDisplay;
+
 import javax.swing.SwingUtilities;
 
 public class Designer {
