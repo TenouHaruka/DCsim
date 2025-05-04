@@ -1,4 +1,4 @@
-package DCsim.components;
+package app.src.main.java.DCsim.components;
 
 public class StorageUnit extends Module {
     private final String component;

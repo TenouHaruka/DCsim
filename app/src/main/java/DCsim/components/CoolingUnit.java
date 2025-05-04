@@ -1,4 +1,4 @@
-package DCsim.components;
+package app.src.main.java.DCsim.components;
 
 import DCsim.handler.ConstraitHandler;
 

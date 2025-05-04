@@ -1,20 +1,20 @@
-package DCsim.components;
+package app.src.main.java.DCsim.components;
 
 import DCsim.handler.ConstraitHandler;
 
 public class ComputingUnit extends Module {
     private final String component;
     private final double coolingRequirement;  
-    private final double powerRequirement;
+    private final double computingPower;
     
 
     public ComputingUnit(double cost, double deliveryTime, double electricityUsage, int id, 
-                         String component, double coolingRequirement, double powerRequirement, 
+                         String component, double coolingRequirement, double computingPower, 
                          int x, int y, int rotation) {
         super(cost, deliveryTime, electricityUsage, id, x, y, rotation);
         this.component = component;
         this.coolingRequirement = coolingRequirement;
-        this.powerRequirement = powerRequirement;
+        this.computingPower = computingPower;
     }
     
     public String getComponent() {
@@ -25,8 +25,8 @@ public class ComputingUnit extends Module {
         return coolingRequirement;
     }
     
-    public double getPowerRequirement() {
-        return powerRequirement;
+    public double getComputingPower() {
+        return computingPower;
     }
 
     @Override
