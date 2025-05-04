@@ -7,7 +7,7 @@ public class StorageUnit extends Module {
     
     public StorageUnit(double cost, double deliveryTime, double electricityUsage, int id, 
                        String component, double coolingRequirement, double storageCapacity, 
-                       int x, int y, int rotation) {
+                       int x, int y, int rotation, int width, int height) {
         super(cost, deliveryTime, electricityUsage, id, x, y, rotation, width, height);
         this.component = component;
         this.coolingRequirement = coolingRequirement;
