@@ -1,4 +1,4 @@
-package components;
+package app.src.main.java.DCsim.components;
 
 import java.io.File;
 import java.io.IOException;
