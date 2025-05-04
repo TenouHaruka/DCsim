@@ -79,8 +79,8 @@ public class GuiDisplay {
                 int x = module.getPose().getX();
                 int y = module.getPose().getY();
 
-                ModuleType type = ModuleHandler.getInstance().getModuleType(module.getId());
-                ModuleVariant variant = ModuleHandler.getInstance().getModuleVariant(module.getId());
+                ModuleType type = ModuleHandler.getInstance().getModuleType(module.getBlockID());
+                ModuleVariant variant = ModuleHandler.getInstance().getModuleVariant(module.getBlockID());
                 Color moduleColor = getColorForType(type);
                 
                 // Draw a subtle drop shadow.
@@ -251,8 +251,8 @@ public class GuiDisplay {
             g2d.setFont(new Font("SansSerif", Font.PLAIN, 13));
             List<Module> modules = ModuleHandler.getInstance().getListModules();
             for (Module module : modules) {
-                ModuleType type = ModuleHandler.getInstance().getModuleType(module.getId());
-                ModuleVariant variant = ModuleHandler.getInstance().getModuleVariant(module.getId());
+                ModuleType type = ModuleHandler.getInstance().getModuleType(module.getBlockID());
+                ModuleVariant variant = ModuleHandler.getInstance().getModuleVariant(module.getBlockID());
                 
                 int squareSize = 15;
                 int squareX = 20;

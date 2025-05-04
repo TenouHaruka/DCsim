@@ -45,8 +45,8 @@ public class ModuleHandler {
     }
     
     // Returns the variant of the module for the given id.
-    public ModuleVariant getModuleVariant(int blockID) {
-        return hashmapVariant.get(blockID);
+    public ModuleVariant getModuleVariant(int moduleID) {
+        return hashmapVariant.get(moduleID);
     }
     
     // Moves a module to a new position and rotation.
@@ -63,28 +63,29 @@ public class ModuleHandler {
     }
     
     // Changes the module's id mapping.
-    public void changeModule(Module module, int newBlockID) {
-        if (hashmapBlockID.containsKey(module.getId())) {
-            ModuleType type = hashmapBlockID.remove(module.getId());
-            ModuleVariant variant = hashmapVariant.remove(module.getId());
-            module.setId(newBlockID);
-            hashmapBlockID.put(newBlockID, type);
-            hashmapVariant.put(newBlockID, variant);
+    public void replaceModule(int blockID, Module newModule) 
+    {
+        Module mod = getModule(blockID);
+        if(mod != null)
+        {
+            listModules.remove(mod);
+            newModule.setBlockID(blockID);
+            listModules.add(mod);
         }
     }
     
     // Deletes the module.
     public void deleteModule(Module module) {
         listModules.remove(module);
-        hashmapBlockID.remove(module.getId());
-        hashmapVariant.remove(module.getId());
+        hashmapBlockID.remove(module.getBlockID());
+        hashmapVariant.remove(module.getBlockID());
     }
     
     // Overloaded: Registers a new module with its type and variant.
     public void createModule(Module module, ModuleType type, ModuleVariant variant) {
         listModules.add(module);
-        hashmapBlockID.put(module.getId(), type);
-        hashmapVariant.put(module.getId(), variant);
+        hashmapBlockID.put(module.getBlockID(), type);
+        hashmapVariant.put(module.getModuleID(), variant);
     }
     
     // Overloaded: If no variant is provided, default to ModuleVariant.one.
@@ -98,12 +99,12 @@ public class ModuleHandler {
     }
     
     public String getModuleTypeString(Module module) {
-        ModuleType type = hashmapBlockID.get(module.getId());
+        ModuleType type = hashmapBlockID.get(module.getBlockID());
         return (type != null) ? type.name() : "x";
     }
 
     public String getModuleVariantString(Module module) {
-        ModuleVariant variant = hashmapVariant.get(module.getId());
+        ModuleVariant variant = hashmapVariant.get(module.getBlockID());
         return (variant != null) ? variant.name() : "x";
     }
 
@@ -115,7 +116,7 @@ public class ModuleHandler {
     {
         for(var mod : listModules)
         {
-            if(mod.getId() == id)
+            if(mod.getBlockID() == id)
                 return mod;
         }
         return null;

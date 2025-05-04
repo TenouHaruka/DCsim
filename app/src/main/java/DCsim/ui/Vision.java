@@ -4,6 +4,8 @@ import org.opencv.core.*;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
 
+import DCsim.components.CoolingUnit;
+import DCsim.components.Module;
 import DCsim.handler.ModuleHandler;
 
 import org.opencv.objdetect.QRCodeDetector;
@@ -90,10 +92,13 @@ public class Vision {
 
     private void addBlock(int blockID) {
         System.out.printf("Adding block %d\n", blockID);
+        Module newModule = new CoolingUnit(10, 10, 10, blockID, blockID, blockID, blockID, blockID, blockID, blockID, blockID);
+        ModuleHandler.getInstance().addModule(newModule);
     }
 
     private void deleteBlock(int blockID) {
         System.out.printf("Deleting block %d\n", blockID);
+        ModuleHandler.getInstance().deleteModule(blockID);
     }
 
     private void moveBlock(int blockID, int x, int y) {

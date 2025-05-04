@@ -80,10 +80,10 @@ public class Designer
         
         // Use overloaded createModule: storage explicitly provides a variant,
         // while others use the default (ModuleVariant.one).
-        handler.createModule(storage, ModuleType.STORAGE, ModuleVariant.one);
-        handler.createModule(cooling, ModuleType.COOLING, ModuleVariant.two);
-        handler.createModule(transform, ModuleType.TRANSFORMER, ModuleVariant.one);
-        handler.createModule(computing, ModuleType.COMPUTING, ModuleVariant.three);
+        //handler.createModule(storage, ModuleType.STORAGE, ModuleVariant.one);
+        //handler.createModule(cooling, ModuleType.COOLING, ModuleVariant.two);
+        //handler.createModule(transform, ModuleType.TRANSFORMER, ModuleVariant.one);
+        //handler.createModule(computing, ModuleType.COMPUTING, ModuleVariant.three);
         
         // Create the GUI display and supply resource data.
         gui = new GuiDisplay();
@@ -128,8 +128,6 @@ public class Designer
     {
         gui.updateView();
         vision.loop();
-        System.out.println(
-        ModuleHandler.getInstance().getModule(2).getPose().getX());
     }
 
 }
