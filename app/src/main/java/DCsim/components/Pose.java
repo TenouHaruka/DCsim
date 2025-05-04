@@ -1,13 +1,15 @@
-package DCsim.components;
+package app.src.main.java.DCsim.components;
 
 public class Pose {
 
-    private int x, y, rotation;
+    private int x, y, rotation, width, height;
 
-    public Pose(int x, int y, int rotation){
+    public Pose(int x, int y, int rotation, int width, int height){
         this.x = x;
         this.y = y;
         this.rotation = rotation;
+        this.width = width;
+        this.height = height;
     } 
 
     /* Getters */
@@ -22,6 +24,14 @@ public class Pose {
 
     public int getRotation(){
         return this.rotation;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 
     /* MOVE functions */

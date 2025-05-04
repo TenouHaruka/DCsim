@@ -1,5 +1,9 @@
+package DCsim;
+
 import java.awt.*;
 import javax.swing.*;
+
+import DCsim.components.Pose;
 
 public class Blueprint extends JPanel {
     // Ratios relative to the container's size.
@@ -60,4 +64,14 @@ public class Blueprint extends JPanel {
     public Dimension getBlueprintSize() {
         return new Dimension(blueprintWidth, blueprintHeight);
     }
+
+    /* Tests if a Module is inside or outside of the blueprint */
+    public boolean isInsideBlueprint(Pose pose) {
+        if (((pose.getX() + pose.getWidth()) < getBlueprintWidth()) && (pose.getY() + pose.getHeight()) < getBlueprintHeight()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

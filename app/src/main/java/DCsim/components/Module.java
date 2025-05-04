@@ -1,23 +1,26 @@
-package DCsim.components;
+package app.src.main.java.DCsim.components;
 
 public abstract class Module {
-    private final double cost;
+
+
+    private final double price;
     private final double deliveryTime;
     private final double electricityUsage;
     private int id;
-
     private Pose pose;
     
-    public Module(double cost, double deliveryTime, double electricityUsage, int id, int x, int y, int rotation) {
-        this.cost = cost;
+    public Module(double price, double deliveryTime, double electricityUsage, int id, int x, int y, int rotation, int width, int height) {
+        this.price = price;
         this.deliveryTime = deliveryTime;
         this.electricityUsage = electricityUsage;
         this.id = id;
-        this.pose = new Pose(x, y, rotation);
+        this.pose = new Pose(x, y, rotation, width, height);
     }
-    
-    public double getCost() {
-        return cost;
+
+
+    /* Builders */
+    public double getPrice() {
+        return price;
     }
     
     public double getDeliveryTime() {
@@ -32,10 +35,11 @@ public abstract class Module {
         return id;
     }
 
-    
     public Pose getPose() {
         return pose;
     }
+
+    public abstract void updateConstraints();
     
     // Setter to update the module's id (used in ModuleHandler.changeModule).
     public void setId(int newId) {

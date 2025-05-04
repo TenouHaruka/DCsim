@@ -1,6 +1,6 @@
-package DCsim.handler;
+package app.src.main.java.DCsim.handler;
 
-import DCsim.components.Module;
+import app.src.main.java.DCsim.components.Module;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +13,7 @@ public class ModuleHandler {
 
     public enum ModuleType {
         COMPUTING,
-        CONTROL,
+        TRANSFORMER,
         COOLING,
         STORAGE;
     }
@@ -98,5 +98,10 @@ public class ModuleHandler {
     public String getModuleVariantString(Module module) {
         ModuleVariant variant = hashmapVariant.get(module.getId());
         return (variant != null) ? variant.name() : "x";
+    }
+
+
+    public void optimizeBlueprint() {
+
     }
 }

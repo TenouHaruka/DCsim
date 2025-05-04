@@ -1,21 +1,31 @@
-package DCsim.components;
+package app.src.main.java.DCsim.components;
+
+import DCsim.handler.ConstraitHandler;
 
 public class CoolingUnit extends Module {
-    private final double coolingPower;
+    private final double coolingProduction;
     private final double waterUsage;
     
     public CoolingUnit(double cost, double deliveryTime, double electricityUsage, int id, 
-                       double coolingPower, double waterUsage, int x, int y, int rotation) {
+                       double coolingProduction, double waterUsage, int x, int y, int rotation) {
         super(cost, deliveryTime, electricityUsage, id, x, y, rotation);
-        this.coolingPower = coolingPower;
+        this.coolingProduction = coolingProduction;
         this.waterUsage = waterUsage;
     }
     
-    public double getCoolingPower() {
-        return coolingPower;
+    public double getCoolingProduction() {
+        return coolingProduction;
     }
     
     public double getWaterUsage() {
         return waterUsage;
+    }
+
+    @Override
+    public void updateConstraints() {
+        ConstraitHandler.getInstance().updateElectricityConsumption(getElectricityUsage());
+        ConstraitHandler.getInstance().updateCoolingProduction(coolingProduction);
+        ConstraitHandler.getInstance().updateWaterConsumption(waterUsage);
+        
     }
 }

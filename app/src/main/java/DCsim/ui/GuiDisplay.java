@@ -1,9 +1,9 @@
-package DCsim.ui;
+package app.src.main.java.DCsim.ui;
 
-import DCsim.components.Module;
-import DCsim.handler.ModuleHandler;
-import DCsim.handler.ModuleHandler.ModuleType;
-import DCsim.handler.ModuleHandler.ModuleVariant;
+import app.src.main.java.DCsim.components.Module;
+import app.src.main.java.DCsim.handler.ModuleHandler;
+import app.src.main.java.DCsim.handler.ModuleHandler.ModuleType;
+import app.src.main.java.DCsim.handler.ModuleHandler.ModuleVariant;
 import java.awt.*;
 import java.util.List;
 import java.util.function.Supplier;
@@ -132,7 +132,7 @@ public class GuiDisplay {
             if (type == null) return new Color(158, 158, 158);
             return switch (type) {
                 case COMPUTING -> new Color(3, 169, 244);
-                case CONTROL -> new Color(255, 152, 0);
+                case TRANSFORMER -> new Color(255, 152, 0);
                 case COOLING -> new Color(33, 150, 243);
                 case STORAGE -> new Color(76, 175, 80);
                 default -> new Color(158, 158, 158);
@@ -295,7 +295,7 @@ public class GuiDisplay {
             if (type == null) return new Color(158, 158, 158);
             return switch (type) {
                 case COMPUTING -> new Color(3, 169, 244);
-                case CONTROL -> new Color(255, 152, 0);
+                case TRANSFORMER -> new Color(255, 152, 0);
                 case COOLING -> new Color(33, 150, 243);
                 case STORAGE -> new Color(76, 175, 80);
                 default -> new Color(158, 158, 158);
