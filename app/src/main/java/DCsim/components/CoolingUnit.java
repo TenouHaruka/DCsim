@@ -1,4 +1,4 @@
-package DCsim.components;
+package app.src.main.java.DCsim.components;
 
 public class CoolingUnit extends Module {
     private final double coolingPower;

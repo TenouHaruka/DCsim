@@ -1,4 +1,4 @@
-package DCsim.components;
+package app.src.main.java.DCsim.components;
 
 public abstract class Module {
     private final double cost;

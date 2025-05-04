@@ -1,3 +1,5 @@
+package app.src.main.java.DCsim;
+
 import java.awt.*;
 import javax.swing.*;
 

@@ -1,4 +1,4 @@
-package DCsim.components;
+package app.src.main.java.DCsim.components;
 
 public class ComputingUnit extends Module {
     private final String component;
