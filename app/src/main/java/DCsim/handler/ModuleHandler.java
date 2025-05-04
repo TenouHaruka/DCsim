@@ -13,7 +13,7 @@ public class ModuleHandler {
 
     public enum ModuleType {
         COMPUTING,
-        CONTROL,
+        TRANSFORMER,
         COOLING,
         STORAGE;
     }
@@ -98,5 +98,10 @@ public class ModuleHandler {
     public String getModuleVariantString(Module module) {
         ModuleVariant variant = hashmapVariant.get(module.getId());
         return (variant != null) ? variant.name() : "x";
+    }
+
+
+    public void optimizeBlueprint() {
+
     }
 }

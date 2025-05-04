@@ -1,5 +1,7 @@
 package DCsim.components;
 
+import DCsim.handler.ConstraitHandler;
+
 public class ComputingUnit extends Module {
     private final String component;
     private final double coolingRequirement;  
@@ -25,5 +27,12 @@ public class ComputingUnit extends Module {
     
     public double getPowerRequirement() {
         return powerRequirement;
+    }
+
+    @Override
+    public void updateConstraints() {
+        ConstraitHandler.getInstance().updateElectricityConsumption(getElectricityUsage());
+        ConstraitHandler.getInstance().updateCoolingConsumption(coolingRequirement);
+        ConstraitHandler.getInstance().updateElectricityConsumption(powerRequirement);
     }
 }
