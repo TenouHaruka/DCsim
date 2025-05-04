@@ -2,6 +2,7 @@ package app.src.main.java.DCsim.handler;
 
 import app.src.main.java.DCsim.components.Module;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class ModuleHandler {
     public enum ModuleVariant {
         one,
         two,
-        three,
+        three;
     }
 
     private static ModuleHandler moduleHandlerInstance;
@@ -98,5 +99,30 @@ public class ModuleHandler {
     public String getModuleVariantString(Module module) {
         ModuleVariant variant = hashmapVariant.get(module.getId());
         return (variant != null) ? variant.name() : "x";
+    }
+
+    public String getModuleClass(ModuleType type){
+        if (type.toString() == "TRANSFORMATEUR") return "Transformateur";
+        else if (type.toString() == "COMPUTING") return "ComputingUnit";
+        else if (type.toString() == "COOLING") return "CoolingUnit";
+        else if (type.toString() == "STORAGE") return "StorageUnit";
+        return null;
+    }
+
+    public ArrayList<Module> filter(ArrayList<Module> mods){
+        mods.sort(Comparator.comparingDouble(Module::getCost));
+        return mods;
+    }
+
+    public ArrayList<Module> getOptions(ModuleType type) {
+        List<Module> list = getListModules();
+        String c = getModuleClass(type);
+        ArrayList<Module> mod = new ArrayList<Module>();
+        for (Module m: list){
+            if (m.getClass().toString() == c){
+                mod.add(m);
+            }
+        }
+        return filter(mod);
     }
 }
