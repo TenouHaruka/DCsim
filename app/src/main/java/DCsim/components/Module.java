@@ -9,12 +9,12 @@ public abstract class Module {
     private int id;
     private Pose pose;
     
-    public Module(double price, double deliveryTime, double electricityUsage, int id, int x, int y, int rotation) {
+    public Module(double price, double deliveryTime, double electricityUsage, int id, int x, int y, int rotation, int width, int height) {
         this.price = price;
         this.deliveryTime = deliveryTime;
         this.electricityUsage = electricityUsage;
         this.id = id;
-        this.pose = new Pose(x, y, rotation);
+        this.pose = new Pose(x, y, rotation, width, height);
     }
 
 
