@@ -1,4 +1,4 @@
-package app.src.main.java.DCsim.components;
+package DCsim.components;
 
 public class Pose {
 

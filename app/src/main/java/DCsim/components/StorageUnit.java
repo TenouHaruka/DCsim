@@ -1,4 +1,4 @@
-package app.src.main.java.DCsim.components;
+package DCsim.components;
 
 public class StorageUnit extends Module {
     private final String component;
@@ -8,7 +8,7 @@ public class StorageUnit extends Module {
     public StorageUnit(double cost, double deliveryTime, double electricityUsage, int id, 
                        String component, double coolingRequirement, double storageCapacity, 
                        int x, int y, int rotation) {
-        super(cost, deliveryTime, electricityUsage, id, x, y, rotation);
+        super(cost, deliveryTime, electricityUsage, id, x, y, rotation, width, height);
         this.component = component;
         this.coolingRequirement = coolingRequirement;
         this.storageCapacity = storageCapacity;
@@ -25,5 +25,11 @@ public class StorageUnit extends Module {
     
     public double getStorageCapacity() {
         return storageCapacity;
+    }
+
+
+    @Override
+    public void updateConstraints() {
+        
     }
 }
