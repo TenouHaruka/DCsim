@@ -4,5 +4,12 @@
       "titleBar.activeBackground": "#712346",
       "titleBar.activeForeground": "#FEFCFD"
    },
-   "java.configuration.updateBuildConfiguration": "interactive"
+   "java.configuration.updateBuildConfiguration": "interactive",
+   "github.copilot.enable": {
+      "*": false,
+      "plaintext": false,
+      "markdown": false,
+      "scminput": false
+   },
+   "java.compile.nullAnalysis.mode": "automatic"
 }

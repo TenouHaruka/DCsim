@@ -18,6 +18,9 @@ repositories {
 }
 
 dependencies {
+
+    implementation files('libs/opencv-4110.jar')
+
     // Use JUnit test framework.
     testImplementation 'junit:junit:4.13.2'
 
@@ -31,4 +34,7 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClass = 'DCsim.Designer'
+    applicationDefaultJvmArgs = [
+        '-Djava.library.path=C:\\Users\\axg31\\Documents\\Installations\\OpenCV\\opencv\\build\\java\\x64'
+    ]
 }
