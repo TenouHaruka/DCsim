@@ -77,15 +77,11 @@ public class ModuleHandler {
     // Deletes the module.
     public void deleteModule(Module module) {
         listModules.remove(module);
-        hashmapBlockID.remove(module.getBlockID());
-        hashmapVariant.remove(module.getBlockID());
     }
     
     // Overloaded: Registers a new module with its type and variant.
     public void createModule(Module module, ModuleType type, ModuleVariant variant) {
         listModules.add(module);
-        hashmapBlockID.put(module.getBlockID(), type);
-        hashmapVariant.put(module.getModuleID(), variant);
     }
     
     // Overloaded: If no variant is provided, default to ModuleVariant.one.
