@@ -3,6 +3,9 @@ package DCsim.ui;
 import org.opencv.core.*;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
+
+import DCsim.handler.ModuleHandler;
+
 import org.opencv.objdetect.QRCodeDetector;
 
 import java.util.*;
@@ -67,7 +70,7 @@ public class Vision {
                 }
 
                 target.addVisionMeasurement(xSum / 4, ySum / 4);
-                moveBlock(targetID, xSum / 4, ySum / 4);
+                moveBlock(targetID, (int)(xSum / 4), (int)(ySum / 4));
             }
         }
 
@@ -93,7 +96,8 @@ public class Vision {
         System.out.printf("Deleting block %d\n", blockID);
     }
 
-    private void moveBlock(int blockID, double x, double y) {
-        System.out.printf("Moving block %d to %.2f, %.2f\n", blockID, x, y);
+    private void moveBlock(int blockID, int x, int y) {
+        System.out.printf("Moving block %d to %d, %d\n", blockID, x, y);
+        ModuleHandler.getInstance().moveModule(blockID, x, y, 0);
     }
 }

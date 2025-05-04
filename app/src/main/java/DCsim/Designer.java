@@ -73,10 +73,10 @@ public class Designer
         // Get the ModuleHandler instance and add some modules.
         ModuleHandler handler = ModuleHandler.getInstance();
         
-        Module storage = new StorageUnit(150, 5, 60, 1, "StorageCore", 20, 500, 50, 50, 0);
-        Module cooling = new CoolingUnit(200, 6, 80, 2, 150, 50, 150, 100, 0);
-        Module transform = new Transformer(120, 4, 40, 3, 250, 120, 0);
-        Module computing = new ComputingUnit(180, 7, 70, 4, "CPU-X", 30, 200, 350, 150, 0);
+        Module storage = new StorageUnit(150, 5, 60, 1, "StorageCore", 20, 500, 50, 50, 0, 20,20);
+        Module cooling = new CoolingUnit(200, 6, 80, 2, 150, 50, 150, 100, 0, 20, 20);
+        Module transform = new Transformer(120, 4, 40, 3, 250, 120, 0, 20, 20);
+        Module computing = new ComputingUnit(180, 7, 70, 4, "CPU-X", 30, 200, 350, 150, 0, 20, 20);
         
         // Use overloaded createModule: storage explicitly provides a variant,
         // while others use the default (ModuleVariant.one).
@@ -107,6 +107,11 @@ public class Designer
                 while (true) 
                 {
                     SwingUtilities.invokeLater(Designer::loop);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        
+                    }
                 }
             }).start();
         });
@@ -123,6 +128,8 @@ public class Designer
     {
         gui.updateView();
         vision.loop();
+        System.out.println(
+        ModuleHandler.getInstance().getModule(2).getPose().getX());
     }
 
 }

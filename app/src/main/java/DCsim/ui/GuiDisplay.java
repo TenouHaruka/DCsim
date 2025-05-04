@@ -1,9 +1,9 @@
-package app.src.main.java.DCsim.ui;
+package DCsim.ui;
 
-import app.src.main.java.DCsim.components.Module;
-import app.src.main.java.DCsim.handler.ModuleHandler;
-import app.src.main.java.DCsim.handler.ModuleHandler.ModuleType;
-import app.src.main.java.DCsim.handler.ModuleHandler.ModuleVariant;
+import DCsim.components.Module;
+import DCsim.handler.ModuleHandler;
+import DCsim.handler.ModuleHandler.ModuleType;
+import DCsim.handler.ModuleHandler.ModuleVariant;
 import java.awt.*;
 import java.util.List;
 import java.util.function.Supplier;

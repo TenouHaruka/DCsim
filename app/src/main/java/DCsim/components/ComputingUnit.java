@@ -1,4 +1,4 @@
-package app.src.main.java.DCsim.components;
+package DCsim.components;
 
 import DCsim.handler.ConstraitHandler;
 
@@ -10,8 +10,8 @@ public class ComputingUnit extends Module {
 
     public ComputingUnit(double cost, double deliveryTime, double electricityUsage, int id, 
                          String component, double coolingRequirement, double computingPower, 
-                         int x, int y, int rotation) {
-        super(cost, deliveryTime, electricityUsage, id, x, y, rotation);
+                         int x, int y, int rotation, int width, int height) {
+        super(cost, deliveryTime, electricityUsage, id, x, y, rotation, width, height);
         this.component = component;
         this.coolingRequirement = coolingRequirement;
         this.computingPower = computingPower;
@@ -33,6 +33,6 @@ public class ComputingUnit extends Module {
     public void updateConstraints() {
         ConstraitHandler.getInstance().updateElectricityConsumption(getElectricityUsage());
         ConstraitHandler.getInstance().updateCoolingConsumption(coolingRequirement);
-        ConstraitHandler.getInstance().updateElectricityConsumption(powerRequirement);
+        ConstraitHandler.getInstance().updateComputingPowerProduction(computingPower);
     }
 }

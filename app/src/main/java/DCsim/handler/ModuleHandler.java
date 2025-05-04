@@ -54,6 +54,13 @@ public class ModuleHandler {
         module.getPose().moveCoordinates(newX, newY);
         module.getPose().moveRotation(newRotation);
     }
+
+    public void moveModule(int blockID, int newX, int newY, int newRotation)
+    {
+        Module mod = getModule(blockID);
+        if(mod == null) return;
+        moveModule(mod, newX, newY, newRotation);
+    }
     
     // Changes the module's id mapping.
     public void changeModule(Module module, int newBlockID) {
@@ -104,9 +111,22 @@ public class ModuleHandler {
         getListModules().add(block);
     }
 
+    public Module getModule(int id)
+    {
+        for(var mod : listModules)
+        {
+            if(mod.getId() == id)
+                return mod;
+        }
+        return null;
+    }
+
     /* Overload : Only demands */
-    public void deleteModule(int id) {
-        
+    public void deleteModule(int id) 
+    {
+        Module mod = getModule(id);
+        if(mod != null)
+            listModules.remove(mod);
     }
 
 
