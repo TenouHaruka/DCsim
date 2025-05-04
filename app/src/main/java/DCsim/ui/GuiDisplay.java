@@ -80,7 +80,7 @@ public class GuiDisplay {
                 int y = module.getPose().getY();
 
                 ModuleType type = ModuleHandler.getInstance().getModuleType(module.getBlockID());
-                ModuleVariant variant = ModuleHandler.getInstance().getModuleVariant(module.getBlockID());
+                ModuleVariant variant = ModuleHandler.getInstance().getModuleVariant(module.getModuleID());
                 Color moduleColor = getColorForType(type);
                 
                 // Draw a subtle drop shadow.

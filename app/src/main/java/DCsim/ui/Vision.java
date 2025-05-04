@@ -92,7 +92,8 @@ public class Vision {
 
     private void addBlock(int blockID) {
         System.out.printf("Adding block %d\n", blockID);
-        Module newModule = new CoolingUnit(10, 10, 10, blockID, blockID, blockID, blockID, blockID, blockID, blockID, blockID);
+        Module newModule = new CoolingUnit(10, 10, 10, 
+        blockID, blockID, blockID, blockID, blockID, blockID, blockID, blockID, 0);
         ModuleHandler.getInstance().addModule(newModule);
     }
 

@@ -30,6 +30,9 @@ public class ModuleHandler {
         listModules = new ArrayList<>();
         hashmapBlockID = new HashMap<>();
         hashmapVariant = new HashMap<>();
+        hashmapBlockID.put(1, ModuleType.COOLING);
+        hashmapVariant.put(0, ModuleVariant.one);
+
     }
 
     public static ModuleHandler getInstance() {

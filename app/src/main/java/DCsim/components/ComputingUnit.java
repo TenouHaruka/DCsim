@@ -10,8 +10,8 @@ public class ComputingUnit extends Module {
 
     public ComputingUnit(double cost, double deliveryTime, double electricityUsage, int id, 
                          String component, double coolingRequirement, double computingPower, 
-                         int x, int y, int rotation, int width, int height) {
-        super(cost, deliveryTime, electricityUsage, id, x, y, rotation, width, height);
+                         int x, int y, int rotation, int width, int height, int moduleID) {
+        super(cost, deliveryTime, electricityUsage, id, x, y, rotation, width, height, moduleID);
         this.component = component;
         this.coolingRequirement = coolingRequirement;
         this.computingPower = computingPower;
